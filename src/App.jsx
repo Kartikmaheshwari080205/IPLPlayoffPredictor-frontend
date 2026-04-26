@@ -2,6 +2,19 @@ import React, { useEffect, useMemo, useState } from "react";
 
 const TEAM_ORDER_FALLBACK = ["MI", "CSK", "RCB", "KKR", "RR", "DC", "PBKS", "SRH", "GT", "LSG"];
 
+const TEAM_LOGO_URLS = {
+  MI: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860053/mumbai-indians.jpg",
+  CSK: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860038/chennai-super-kings.jpg",
+  RCB: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860056/royal-challengers-bengaluru.jpg",
+  KKR: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860046/kolkata-knight-riders.jpg",
+  RR: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860055/rajasthan-royals.jpg",
+  DC: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860040/delhi-capitals.jpg",
+  PBKS: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860084/punjab-kings.jpg",
+  SRH: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860066/sunrisers-hyderabad.jpg",
+  GT: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c860068/gujarat-titans.jpg",
+  LSG: "https://static.cricbuzz.com/a/img/v1/0x0/i1/c882545/lucknow-super-giants.jpg",
+};
+
 const bundledSnapshotUrls = import.meta.glob("./data/playoff_snapshot.json", {
   eager: true,
   query: "?url",
@@ -90,9 +103,23 @@ export default function App() {
               <tbody>
                 {snapshot.rows.map(({ team, probability }) => {
                   const pct = clamp(probability, 0, 100);
+                  const logoUrl = TEAM_LOGO_URLS[team];
                   return (
                     <tr key={team}>
-                      <td>{team}</td>
+                      <td>
+                        <div className="team-cell">
+                          {logoUrl ? (
+                            <img
+                              className="team-logo"
+                              src={logoUrl}
+                              alt={`${team} logo`}
+                              loading="lazy"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : null}
+                          <span className="team-code">{team}</span>
+                        </div>
+                      </td>
                       <td>
                         <div className="bar-track">
                           <div className="bar-fill" style={{ width: `${pct}%` }} />
