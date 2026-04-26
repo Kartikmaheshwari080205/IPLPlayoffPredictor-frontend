@@ -2,6 +2,10 @@
 
 React + Vite frontend for the nightly playoff snapshot.
 
+## Live Deployment
+
+- https://ipl-playoff-predictor-frontend.vercel.app
+
 ## Run locally
 
 ```bash
