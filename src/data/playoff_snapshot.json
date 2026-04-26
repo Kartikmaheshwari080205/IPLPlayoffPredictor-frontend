@@ -1,0 +1,20 @@
+{
+  "lastUpdated": "2026-04-26 07:45:52",
+  "remainingMatches": 34,
+  "teamOrder": [
+    "MI",
+    "CSK",
+    "RCB",
+    "KKR",
+    "RR",
+    "DC",
+    "PBKS",
+    "SRH",
+    "GT",
+    "LSG"
+  ],
+  "status": "unfeasible",
+  "message": "unfeasible to compute at the moment",
+  "probabilities": [],
+  "mappedProbabilities": {}
+}
