@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-02 04:09:19",
+  "lastUpdated": "2026-05-02 06:04:34",
   "remainingMatches": 27,
   "teamOrder": [
     "MI",
@@ -13,6 +13,224 @@
     "GT",
     "LSG"
   ],
+  "pointsTable": [
+    {
+      "team": "PBKS",
+      "matchesPlayed": 8,
+      "points": 13
+    },
+    {
+      "team": "RCB",
+      "matchesPlayed": 9,
+      "points": 12
+    },
+    {
+      "team": "RR",
+      "matchesPlayed": 10,
+      "points": 12
+    },
+    {
+      "team": "SRH",
+      "matchesPlayed": 9,
+      "points": 12
+    },
+    {
+      "team": "DC",
+      "matchesPlayed": 9,
+      "points": 8
+    },
+    {
+      "team": "GT",
+      "matchesPlayed": 9,
+      "points": 8
+    },
+    {
+      "team": "CSK",
+      "matchesPlayed": 8,
+      "points": 6
+    },
+    {
+      "team": "LSG",
+      "matchesPlayed": 8,
+      "points": 6
+    },
+    {
+      "team": "KKR",
+      "matchesPlayed": 8,
+      "points": 5
+    },
+    {
+      "team": "MI",
+      "matchesPlayed": 8,
+      "points": 4
+    }
+  ],
+  "h2h": {
+    "teamOrder": [
+      "MI",
+      "CSK",
+      "RCB",
+      "KKR",
+      "RR",
+      "DC",
+      "PBKS",
+      "SRH",
+      "GT",
+      "LSG"
+    ],
+    "rows": [
+      {
+        "team": "MI",
+        "values": [
+          0,
+          21,
+          19,
+          25,
+          15,
+          17,
+          18,
+          10,
+          5,
+          6
+        ]
+      },
+      {
+        "team": "CSK",
+        "values": [
+          19,
+          0,
+          21,
+          21,
+          16,
+          20,
+          17,
+          15,
+          4,
+          3
+        ]
+      },
+      {
+        "team": "RCB",
+        "values": [
+          16,
+          14,
+          0,
+          15,
+          17,
+          21,
+          19,
+          12,
+          4,
+          5
+        ]
+      },
+      {
+        "team": "KKR",
+        "values": [
+          11,
+          11,
+          20,
+          0,
+          17,
+          19,
+          21,
+          20,
+          4,
+          6
+        ]
+      },
+      {
+        "team": "RR",
+        "values": [
+          15,
+          16,
+          15,
+          14,
+          0,
+          15,
+          18,
+          9,
+          6,
+          2
+        ]
+      },
+      {
+        "team": "DC",
+        "values": [
+          21,
+          12,
+          13,
+          15,
+          16,
+          0,
+          17,
+          12,
+          5,
+          3
+        ]
+      },
+      {
+        "team": "PBKS",
+        "values": [
+          17,
+          16,
+          18,
+          13,
+          13,
+          18,
+          0,
+          8,
+          3,
+          3
+        ]
+      },
+      {
+        "team": "SRH",
+        "values": [
+          16,
+          8,
+          14,
+          11,
+          14,
+          14,
+          17,
+          0,
+          5,
+          5
+        ]
+      },
+      {
+        "team": "GT",
+        "values": [
+          4,
+          5,
+          4,
+          1,
+          3,
+          3,
+          4,
+          1,
+          0,
+          5
+        ]
+      },
+      {
+        "team": "LSG",
+        "values": [
+          2,
+          2,
+          2,
+          2,
+          5,
+          5,
+          4,
+          2,
+          3,
+          0
+        ]
+      }
+    ]
+  },
   "status": "computed",
   "probabilities": [
     0.0569071916,
