@@ -201,14 +201,80 @@ h1 {
   text-transform: uppercase;
 }
 
-.team-picker {
+.team-dropdown {
+  position: relative;
   min-width: 180px;
+}
+
+.team-picker-button {
+  width: 100%;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-main);
   padding: 10px 12px;
   font: inherit;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.team-picker-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.team-picker-chevron {
+  transition: transform 0.15s ease;
+}
+
+.team-picker-chevron.open {
+  transform: rotate(180deg);
+}
+
+.team-picker-menu {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(23, 27, 46, 0.98), rgba(17, 20, 35, 0.98));
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.team-picker-option {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-main);
+  text-align: left;
+  padding: 8px 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.team-picker-option:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.team-picker-option.active {
+  background: linear-gradient(135deg, rgba(255, 138, 61, 0.28), rgba(255, 214, 111, 0.24));
+  color: #fff9ed;
+}
+
+.team-picker-option:focus-visible,
+.team-picker-button:focus-visible {
+  outline: 2px solid rgba(255, 214, 111, 0.7);
+  outline-offset: 2px;
 }
 
 .h2h-summary-card {
@@ -405,7 +471,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .team-picker {
+  .team-dropdown {
     width: 100%;
   }
 

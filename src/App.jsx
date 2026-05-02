@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const TEAM_ORDER_FALLBACK = ["MI", "CSK", "RCB", "KKR", "RR", "DC", "PBKS", "SRH", "GT", "LSG"];
 const TAB_OPTIONS = [
@@ -44,6 +44,8 @@ export default function App() {
   });
   const [activeTab, setActiveTab] = useState("points");
   const [selectedH2hTeam, setSelectedH2hTeam] = useState(TEAM_ORDER_FALLBACK[0]);
+  const [isH2hMenuOpen, setIsH2hMenuOpen] = useState(false);
+  const h2hDropdownRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -69,6 +71,38 @@ export default function App() {
       setSelectedH2hTeam(availableTeams[0]);
     }
   }, [selectedH2hTeam, snapshot.h2h.teamOrder]);
+
+  useEffect(() => {
+    if (!isH2hMenuOpen) {
+      return;
+    }
+
+    function handleDocumentPointerDown(event) {
+      if (!h2hDropdownRef.current?.contains(event.target)) {
+        setIsH2hMenuOpen(false);
+      }
+    }
+
+    function handleEscape(event) {
+      if (event.key === "Escape") {
+        setIsH2hMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleDocumentPointerDown);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentPointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isH2hMenuOpen]);
+
+  useEffect(() => {
+    if (activeTab !== "h2h") {
+      setIsH2hMenuOpen(false);
+    }
+  }, [activeTab]);
 
   const isComputed = snapshot.status === "computed";
   const stateLabel =
@@ -104,18 +138,16 @@ export default function App() {
         const wins = numberOrZero(selectedH2hRow.values[index]);
         const opponentRow = snapshot.h2h.rows.find((row) => row.team === opponent);
         const losses = numberOrZero(opponentRow?.values?.[selectedIndex]);
-        const total = wins + losses;
 
         return {
           opponent,
           wins,
           losses,
-          total,
-          winRate: total ? (wins / total) * 100 : 0,
+          decimal: losses > 0 ? wins / losses : null,
         };
       })
       .filter(Boolean)
-      .sort((left, right) => right.total - left.total);
+      .sort((left, right) => right.wins - left.wins);
   }, [selectedH2hRow, selectedH2hTeam, snapshot.h2h.rows, snapshot.h2h.teamOrder]);
 
   return (
@@ -127,9 +159,7 @@ export default function App() {
         <header className="hero">
           <p className="eyebrow">IPL 2026</p>
           <h1>Playoff Probability Snapshot</h1>
-          <p className="subtitle">
-            Nightly backend snapshots are rendered here with computed and fallback states.
-          </p>
+          <p className="subtitle">Live standings, qualification odds, and opponent history in one clean dashboard.</p>
         </header>
 
         <section className="meta" aria-label="Snapshot metadata">
@@ -147,9 +177,6 @@ export default function App() {
               <div className={`status-pill ${snapshot.status}`}>{stateLabel}</div>
               <h2>{activeTabLabel}</h2>
             </div>
-            <p className="section-note">
-              Switch between standings, qualification odds, and the historical head-to-head matrix.
-            </p>
           </div>
 
           <div className="tab-switcher" role="tablist" aria-label="IPL dashboard sections">
@@ -261,18 +288,41 @@ export default function App() {
                   <label className="team-picker-label" htmlFor="h2h-team-picker">
                     Select team
                   </label>
-                  <select
-                    id="h2h-team-picker"
-                    className="team-picker"
-                    value={selectedH2hTeam}
-                    onChange={(event) => setSelectedH2hTeam(event.target.value)}
-                  >
-                    {snapshot.h2h.teamOrder.map((team) => (
-                      <option key={team} value={team}>
-                        {team}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="team-dropdown" ref={h2hDropdownRef}>
+                    <button
+                      id="h2h-team-picker"
+                      type="button"
+                      className="team-picker-button"
+                      aria-haspopup="listbox"
+                      aria-expanded={isH2hMenuOpen}
+                      aria-label="Select team"
+                      onClick={() => setIsH2hMenuOpen((open) => !open)}
+                    >
+                      <span>{selectedH2hTeam}</span>
+                      <span className={`team-picker-chevron ${isH2hMenuOpen ? "open" : ""}`} aria-hidden="true">
+                        ▾
+                      </span>
+                    </button>
+
+                    {isH2hMenuOpen ? (
+                      <ul className="team-picker-menu" role="listbox" aria-labelledby="h2h-team-picker">
+                        {snapshot.h2h.teamOrder.map((team) => (
+                          <li key={team} role="option" aria-selected={selectedH2hTeam === team}>
+                            <button
+                              type="button"
+                              className={`team-picker-option ${selectedH2hTeam === team ? "active" : ""}`}
+                              onClick={() => {
+                                setSelectedH2hTeam(team);
+                                setIsH2hMenuOpen(false);
+                              }}
+                            >
+                              {team}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
                 </div>
 
                 {selectedH2hRow ? (
@@ -293,9 +343,7 @@ export default function App() {
                           <h3 className="summary-team">{selectedH2hTeam}</h3>
                         </div>
                       </div>
-                      <p className="summary-copy">
-                        Historical record against each opponent from the matrix. Wins, losses, and total meetings are shown below.
-                      </p>
+                      <p className="summary-copy">Historical record against each opponent from the matrix. Wins, losses, and a win/loss decimal are shown below.</p>
                     </div>
 
                     <div className="table-scroll h2h-scroll">
@@ -305,12 +353,11 @@ export default function App() {
                             <th>Opponent</th>
                             <th>Wins</th>
                             <th>Losses</th>
-                            <th>Total</th>
-                            <th>Win %</th>
+                            <th>Win/Loss Decimal</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {selectedH2hOpponents.map(({ opponent, wins, losses, total, winRate }) => {
+                          {selectedH2hOpponents.map(({ opponent, wins, losses, decimal }) => {
                             const logoUrl = TEAM_LOGO_URLS[opponent];
                             return (
                               <tr key={opponent}>
@@ -330,8 +377,7 @@ export default function App() {
                                 </td>
                                 <td>{wins}</td>
                                 <td>{losses}</td>
-                                <td>{total}</td>
-                                <td>{winRate.toFixed(1)}%</td>
+                                <td>{decimal === null ? "∞" : decimal.toFixed(2)}</td>
                               </tr>
                             );
                           })}
@@ -374,6 +420,11 @@ async function loadSnapshot() {
     remainingMatches: "-",
     teamOrder: TEAM_ORDER_FALLBACK,
     rows: [],
+    pointsTable: [],
+    h2h: {
+      teamOrder: TEAM_ORDER_FALLBACK,
+      rows: [],
+    },
     message:
       "Snapshot file is not available yet. This is expected on first deploy before the nightly publish workflow runs.",
   };
