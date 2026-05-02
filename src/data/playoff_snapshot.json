@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-02 01:59:05",
-  "remainingMatches": 28,
+  "lastUpdated": "2026-05-02 04:09:19",
+  "remainingMatches": 27,
   "teamOrder": [
     "MI",
     "CSK",
@@ -13,8 +13,29 @@
     "GT",
     "LSG"
   ],
-  "status": "unfeasible",
-  "message": "unfeasible to compute at the moment",
-  "probabilities": [],
-  "mappedProbabilities": {}
+  "status": "computed",
+  "probabilities": [
+    0.0569071916,
+    0.1786574413,
+    0.8354495123,
+    0.0936441811,
+    0.6968752381,
+    0.15612375,
+    0.9269968594,
+    0.8692223285,
+    0.1032634063,
+    0.0828600914
+  ],
+  "mappedProbabilities": {
+    "MI": 0.0569071916,
+    "CSK": 0.1786574413,
+    "RCB": 0.8354495123,
+    "KKR": 0.0936441811,
+    "RR": 0.6968752381,
+    "DC": 0.15612375,
+    "PBKS": 0.9269968594,
+    "SRH": 0.8692223285,
+    "GT": 0.1032634063,
+    "LSG": 0.0828600914
+  }
 }
