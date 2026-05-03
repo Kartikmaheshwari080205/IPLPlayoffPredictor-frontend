@@ -345,7 +345,7 @@ export default function App() {
                           <h3 className="summary-team">{selectedH2hTeam}</h3>
                         </div>
                       </div>
-                      <p className="summary-copy">Historical record against each opponent from the matrix. Wins, losses, and a win/loss decimal are shown below.</p>
+                      <p className="summary-copy">Historical record against each opponent from the matrix. Wins, losses, and a win/loss ratio are shown below.</p>
                     </div>
 
                     <div className="table-scroll h2h-scroll">
@@ -355,7 +355,7 @@ export default function App() {
                             <th>Opponent</th>
                             <th>Wins</th>
                             <th>Losses</th>
-                            <th>Win/Loss Decimal</th>
+                            <th>Win/Loss ratio</th>
                           </tr>
                         </thead>
                         <tbody>
