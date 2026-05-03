@@ -33,6 +33,7 @@ export default function App() {
     status: "missing",
     lastUpdated: "Loading...",
     remainingMatches: "-",
+    lastCompletedMatch: null,
     teamOrder: TEAM_ORDER_FALLBACK,
     rows: [],
     pointsTable: [],
@@ -115,10 +116,11 @@ export default function App() {
   const metaCards = useMemo(
     () => [
       { label: "Last Updated", value: String(snapshot.lastUpdated) },
+      { label: "Last Completed Match", value: formatLastCompletedMatch(snapshot.lastCompletedMatch) },
       { label: "Remaining Matches", value: String(snapshot.remainingMatches) },
       { label: "Teams", value: String(snapshot.teamOrder.length) },
     ],
-    [snapshot.lastUpdated, snapshot.remainingMatches, snapshot.teamOrder.length]
+    [snapshot.lastCompletedMatch, snapshot.lastUpdated, snapshot.remainingMatches, snapshot.teamOrder.length]
   );
 
   const activeTabLabel = TAB_OPTIONS.find((tab) => tab.id === activeTab)?.label || "Dashboard";
@@ -468,6 +470,7 @@ function normalizeSnapshot(raw) {
     status,
     lastUpdated: raw?.lastUpdated || "Unavailable",
     remainingMatches: Number.isFinite(raw?.remainingMatches) ? raw.remainingMatches : "-",
+    lastCompletedMatch: normalizeLastCompletedMatch(raw?.lastCompletedMatch),
     teamOrder,
     rows,
     pointsTable: normalizePointsTable(raw?.pointsTable, teamOrder),
@@ -530,6 +533,34 @@ function normalizeH2h(rawH2h, teamOrder) {
       values: rowMap.get(team)?.values || Array.from({ length: safeOrder.length }, () => 0),
     })),
   };
+}
+
+function normalizeLastCompletedMatch(rawMatch) {
+  if (!rawMatch || typeof rawMatch !== "object") {
+    return null;
+  }
+
+  const team1 = String(rawMatch.team1 || "").toUpperCase();
+  const team2 = String(rawMatch.team2 || "").toUpperCase();
+  const matchId = rawMatch.matchId == null ? "" : rawMatch.matchId;
+
+  if (!team1 || !team2 || matchId === "") {
+    return null;
+  }
+
+  return {
+    matchId,
+    team1,
+    team2,
+  };
+}
+
+function formatLastCompletedMatch(rawMatch) {
+  if (!rawMatch) {
+    return "Unavailable";
+  }
+
+  return `#${rawMatch.matchId} ${rawMatch.team1} vs ${rawMatch.team2}`;
 }
 
 function normalizeToPercentage(rows) {
