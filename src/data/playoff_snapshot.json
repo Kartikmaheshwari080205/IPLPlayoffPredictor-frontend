@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-03 20:12:21",
-  "remainingMatches": 27,
+  "lastUpdated": "2026-05-04 07:00:51",
+  "remainingMatches": 24,
   "teamOrder": [
     "MI",
     "CSK",
@@ -16,7 +16,7 @@
   "pointsTable": [
     {
       "team": "PBKS",
-      "matchesPlayed": 8,
+      "matchesPlayed": 9,
       "points": 13
     },
     {
@@ -31,13 +31,18 @@
     },
     {
       "team": "SRH",
-      "matchesPlayed": 9,
+      "matchesPlayed": 10,
       "points": 12
     },
     {
       "team": "GT",
+      "matchesPlayed": 10,
+      "points": 12
+    },
+    {
+      "team": "CSK",
       "matchesPlayed": 9,
-      "points": 10
+      "points": 8
     },
     {
       "team": "DC",
@@ -45,18 +50,13 @@
       "points": 8
     },
     {
-      "team": "CSK",
-      "matchesPlayed": 8,
-      "points": 6
-    },
-    {
       "team": "KKR",
-      "matchesPlayed": 8,
-      "points": 5
+      "matchesPlayed": 9,
+      "points": 7
     },
     {
       "team": "MI",
-      "matchesPlayed": 8,
+      "matchesPlayed": 9,
       "points": 4
     },
     {
@@ -97,7 +97,7 @@
       {
         "team": "CSK",
         "values": [
-          19,
+          20,
           0,
           21,
           21,
@@ -134,7 +134,7 @@
           17,
           19,
           21,
-          20,
+          21,
           1,
           3
         ]
@@ -208,7 +208,7 @@
           4,
           6,
           5,
-          3,
+          4,
           5,
           0,
           5
@@ -232,33 +232,33 @@
     ]
   },
   "lastCompletedMatch": {
-    "matchId": 43,
-    "team1": "RR",
-    "team2": "DC"
+    "matchId": 46,
+    "team1": "GT",
+    "team2": "PBKS"
   },
   "status": "computed",
   "probabilities": [
-    0.0108734327,
-    0.0942775081,
-    0.8196269046,
-    0.0274586777,
-    0.6798544513,
-    0.1208024366,
-    0.9435137083,
-    0.7215012926,
-    0.5729926669,
-    0.0090989212
+    0.0010648879,
+    0.1620340797,
+    0.8088010686,
+    0.0436877535,
+    0.6744739508,
+    0.1120836659,
+    0.888770056,
+    0.5429124734,
+    0.7578945996,
+    0.0082774646
   ],
   "mappedProbabilities": {
-    "MI": 0.0108734327,
-    "CSK": 0.0942775081,
-    "RCB": 0.8196269046,
-    "KKR": 0.0274586777,
-    "RR": 0.6798544513,
-    "DC": 0.1208024366,
-    "PBKS": 0.9435137083,
-    "SRH": 0.7215012926,
-    "GT": 0.5729926669,
-    "LSG": 0.0090989212
+    "MI": 0.0010648879,
+    "CSK": 0.1620340797,
+    "RCB": 0.8088010686,
+    "KKR": 0.0436877535,
+    "RR": 0.6744739508,
+    "DC": 0.1120836659,
+    "PBKS": 0.888770056,
+    "SRH": 0.5429124734,
+    "GT": 0.7578945996,
+    "LSG": 0.0082774646
   }
 }
