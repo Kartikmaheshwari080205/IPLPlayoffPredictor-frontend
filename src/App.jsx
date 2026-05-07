@@ -28,6 +28,11 @@ const bundledSnapshotUrls = import.meta.glob("./data/playoff_snapshot.json", {
 
 const bundledSnapshotUrl = Object.values(bundledSnapshotUrls)[0];
 
+const EXTERNAL_LINKS = [
+  { label: "Frontend Repo", href: "https://github.com/Kartikmaheshwari080205/IPLPlayoffPredictor-frontend" },
+  { label: "Backend Repo", href: "https://github.com/Kartikmaheshwari080205/IPLPlayoffPredictor-backend" },
+];
+
 export default function App() {
   const [snapshot, setSnapshot] = useState({
     status: "missing",
@@ -396,6 +401,18 @@ export default function App() {
             )}
           </div>
         </section>
+
+        <footer className="site-footer" aria-label="External links">
+          <p className="footer-title">More from the developer</p>
+          <div className="footer-links">
+            {EXTERNAL_LINKS.map((link) => (
+              <a key={link.label} className="footer-link" href={link.href} target="_blank" rel="noreferrer">
+                <span>{link.label}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </footer>
       </main>
     </>
   );
