@@ -25,7 +25,7 @@ Set these GitHub repository secrets before the workflow can deploy:
 
 ### How to get the values
 
-1. Install Vercel CLI locally if needed: `npm i -g vercel`
+1. Install Vercel CLI locally if needed: `npm i -g vercel@53.3.1`
 2. Run `vercel login`
 3. Inside this project, run `vercel link`
 4. Open `.vercel/project.json` and copy:
