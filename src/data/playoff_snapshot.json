@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-19 15:59:15",
-  "remainingMatches": 13,
+  "lastUpdated": "2026-05-19 17:54:15",
+  "remainingMatches": 6,
   "teamOrder": [
     "MI",
     "CSK",
@@ -16,53 +16,53 @@
   "pointsTable": [
     {
       "team": "RCB",
-      "matchesPlayed": 12,
+      "matchesPlayed": 13,
+      "points": 18
+    },
+    {
+      "team": "SRH",
+      "matchesPlayed": 13,
       "points": 16
     },
     {
       "team": "GT",
-      "matchesPlayed": 12,
+      "matchesPlayed": 13,
       "points": 16
     },
     {
-      "team": "SRH",
-      "matchesPlayed": 12,
+      "team": "RR",
+      "matchesPlayed": 13,
       "points": 14
     },
     {
       "team": "PBKS",
-      "matchesPlayed": 11,
+      "matchesPlayed": 13,
       "points": 13
     },
     {
       "team": "CSK",
-      "matchesPlayed": 11,
-      "points": 12
-    },
-    {
-      "team": "RR",
-      "matchesPlayed": 11,
+      "matchesPlayed": 13,
       "points": 12
     },
     {
       "team": "DC",
-      "matchesPlayed": 12,
-      "points": 10
+      "matchesPlayed": 13,
+      "points": 12
     },
     {
       "team": "KKR",
-      "matchesPlayed": 11,
-      "points": 9
+      "matchesPlayed": 12,
+      "points": 11
     },
     {
       "team": "MI",
-      "matchesPlayed": 11,
-      "points": 6
+      "matchesPlayed": 12,
+      "points": 8
     },
     {
       "team": "LSG",
-      "matchesPlayed": 11,
-      "points": 6
+      "matchesPlayed": 13,
+      "points": 8
     }
   ],
   "h2h": {
@@ -88,7 +88,7 @@
           25,
           16,
           21,
-          17,
+          18,
           15,
           4,
           3
@@ -118,7 +118,7 @@
           16,
           17,
           20,
-          19,
+          20,
           12,
           4,
           5
@@ -135,7 +135,7 @@
           20,
           21,
           21,
-          1,
+          2,
           3
         ]
       },
@@ -151,7 +151,7 @@
           18,
           9,
           3,
-          5
+          6
         ]
       },
       {
@@ -161,7 +161,7 @@
           12,
           13,
           15,
-          16,
+          17,
           0,
           18,
           12,
@@ -188,7 +188,7 @@
         "team": "SRH",
         "values": [
           11,
-          8,
+          9,
           13,
           11,
           14,
@@ -218,7 +218,7 @@
         "team": "LSG",
         "values": [
           6,
-          3,
+          4,
           3,
           5,
           2,
@@ -232,33 +232,33 @@
     ]
   },
   "lastCompletedMatch": {
-    "matchId": 57,
-    "team1": "RCB",
-    "team2": "KKR"
+    "matchId": 64,
+    "team1": "RR",
+    "team2": "LSG"
   },
   "status": "computed",
   "probabilities": [
     0.0,
-    0.4226523757,
-    0.9075819034,
-    0.0070959558,
-    0.4762326799,
-    0.0062117484,
-    0.664296503,
-    0.5556612558,
-    0.9602675781,
+    0.0275972997,
+    1.0,
+    0.0738586928,
+    0.6192843946,
+    0.0384764319,
+    0.240783181,
+    1.0,
+    1.0,
     0.0
   ],
   "mappedProbabilities": {
     "MI": 0.0,
-    "CSK": 0.4226523757,
-    "RCB": 0.9075819034,
-    "KKR": 0.0070959558,
-    "RR": 0.4762326799,
-    "DC": 0.0062117484,
-    "PBKS": 0.664296503,
-    "SRH": 0.5556612558,
-    "GT": 0.9602675781,
+    "CSK": 0.0275972997,
+    "RCB": 1.0,
+    "KKR": 0.0738586928,
+    "RR": 0.6192843946,
+    "DC": 0.0384764319,
+    "PBKS": 0.240783181,
+    "SRH": 1.0,
+    "GT": 1.0,
     "LSG": 0.0
   }
 }
