@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-26 06:30:55",
-  "remainingMatches": 2,
+  "lastUpdated": "2026-05-26 16:26:51",
+  "remainingMatches": 0,
   "teamOrder": [
     "MI",
     "CSK",
@@ -30,18 +30,23 @@
       "points": 18
     },
     {
+      "team": "RR",
+      "matchesPlayed": 14,
+      "points": 16
+    },
+    {
       "team": "PBKS",
       "matchesPlayed": 14,
       "points": 15
     },
     {
-      "team": "RR",
-      "matchesPlayed": 13,
+      "team": "DC",
+      "matchesPlayed": 14,
       "points": 14
     },
     {
       "team": "KKR",
-      "matchesPlayed": 13,
+      "matchesPlayed": 14,
       "points": 13
     },
     {
@@ -50,13 +55,8 @@
       "points": 12
     },
     {
-      "team": "DC",
-      "matchesPlayed": 13,
-      "points": 12
-    },
-    {
       "team": "MI",
-      "matchesPlayed": 13,
+      "matchesPlayed": 14,
       "points": 8
     },
     {
@@ -142,7 +142,7 @@
       {
         "team": "RR",
         "values": [
-          15,
+          16,
           16,
           15,
           13,
@@ -160,7 +160,7 @@
           17,
           12,
           13,
-          15,
+          16,
           17,
           0,
           18,
@@ -232,19 +232,19 @@
     ]
   },
   "lastCompletedMatch": {
-    "matchId": 68,
-    "team1": "LSG",
-    "team2": "PBKS"
+    "matchId": 70,
+    "team1": "KKR",
+    "team2": "DC"
   },
   "status": "computed",
   "probabilities": [
     0.0,
     0.0,
     1.0,
-    0.1272956593,
-    0.5378787878,
     0.0,
-    0.3348255529,
+    1.0,
+    0.0,
+    0.0,
     1.0,
     1.0,
     0.0
@@ -253,10 +253,10 @@
     "MI": 0.0,
     "CSK": 0.0,
     "RCB": 1.0,
-    "KKR": 0.1272956593,
-    "RR": 0.5378787878,
+    "KKR": 0.0,
+    "RR": 1.0,
     "DC": 0.0,
-    "PBKS": 0.3348255529,
+    "PBKS": 0.0,
     "SRH": 1.0,
     "GT": 1.0,
     "LSG": 0.0
